@@ -15,6 +15,7 @@ BuildRequires:	automake
 BuildRequires:	nasm
 #BuildRequires:	gcc
 #BuildRequires:	gcc-c++
+BuildRequires:  gomp-devel
 BuildRequires:	libtool
 BuildRequires:	make
 BuildRequires:	tidy
