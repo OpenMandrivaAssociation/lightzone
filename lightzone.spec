@@ -26,6 +26,7 @@ BuildRequires:	java-rpmbuild
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:  pkgconfig(libjpeg)
+BuildRequires:  pkgconfig(lcms2)
 
 Requires:	java >= 1.6.0
 Requires:	%{_lib}lzma5
