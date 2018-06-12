@@ -7,7 +7,7 @@ License:	BSD-3-Clause
 Summary:	Open-source professional-level digital darkroom software
 Url:		http://lightzoneproject.org/
 Group:		Graphics
-Source0:	https://github.com/ktgw0316/LightZone/archive/%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/ktgw0316/LightZone/archive/%{version}/%{oname}-%{version}.tar.gz
 #Source100:	%{name}.rpmlintrc
 BuildRequires:	ant
 BuildRequires:	autoconf
