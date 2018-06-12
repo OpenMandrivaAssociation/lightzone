@@ -13,8 +13,8 @@ BuildRequires:	ant
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	nasm
-BuildRequires:	gcc
-BuildRequires:	gcc-c++
+#BuildRequires:	gcc
+#BuildRequires:	gcc-c++
 BuildRequires:	libtool
 BuildRequires:	make
 BuildRequires:	tidy
