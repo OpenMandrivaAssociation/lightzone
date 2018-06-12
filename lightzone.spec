@@ -69,10 +69,13 @@ install -m 755 linux/products/%{name} %{buildroot}/%{_bindir}
 
 %files
 %doc COPYING README.md linux/BUILD-Linux.md
-%dir %{instdir}
-%{instdir}/*
+%dir %{_libexecdir}/%{name}
+%{_libexecdir}/%{name}/*
+%dir %{_javadir}/%{name}
+%{_javadir}/%{name}/*
 %{_bindir}/%{name}
-%{_datadir}/applications/lightzone.desktop
+%{_datadir}/applications/%{name}.desktop
+%define icondir %{_datadir}/icons/hicolor
 %dir %{icondir}
 %dir %{icondir}/256x256
 %dir %{icondir}/256x256/apps
@@ -86,10 +89,10 @@ install -m 755 linux/products/%{name} %{buildroot}/%{_bindir}
 %dir %{icondir}/32x32/apps
 %dir %{icondir}/16x16
 %dir %{icondir}/16x16/apps
-%{icondir}/256x256/apps/LightZone.png
-%{icondir}/128x128/apps/LightZone.png
-%{icondir}/64x64/apps/LightZone.png
-%{icondir}/48x48/apps/LightZone.png
-%{icondir}/32x32/apps/LightZone.png
-%{icondir}/16x16/apps/LightZone.png
+%{icondir}/256x256/apps/%{name}.png
+%{icondir}/128x128/apps/%{name}.png
+%{icondir}/64x64/apps/%{name}.png
+%{icondir}/48x48/apps/%{name}.png
+%{icondir}/32x32/apps/%{name}.png
+%{icondir}/16x16/apps/%{name}.png
 
