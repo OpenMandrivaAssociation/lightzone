@@ -52,7 +52,7 @@ linear color space with the wide gamut of ProPhoto RGB.
 %install
 %define instdir /opt/%{name}
 install -dm 0755 "%{buildroot}/%{instdir}"
-cp -rpH lightcrafts/products/dcraw "%{buildroot}/%{instdir}"
+cp -rpH lightcrafts/products/dcraw_lz "%{buildroot}/%{instdir}"
 cp -rpH lightcrafts/products/LightZone-forkd "%{buildroot}/%{instdir}"
 cp -rpH linux/products/*.so "%{buildroot}/%{instdir}"
 cp -rpH linux/products/*.jar "%{buildroot}/%{instdir}"
