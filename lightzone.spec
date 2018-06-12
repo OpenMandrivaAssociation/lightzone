@@ -25,6 +25,7 @@ BuildRequires:	java-1.8.0-openjdk-devel
 BuildRequires:	java-rpmbuild
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(liblzma)
+BuildRequires:  pkgconfig(libjpeg)
 
 Requires:	java >= 1.6.0
 Requires:	%{_lib}lzma5
