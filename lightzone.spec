@@ -50,30 +50,22 @@ linear color space with the wide gamut of ProPhoto RGB.
 %ant -f linux/build.xml jar
 
 %install
-%define instdir /opt/%{name}
-install -dm 0755 "%{buildroot}/%{instdir}"
-cp -rpH lightcrafts/products/dcraw_lz "%{buildroot}/%{instdir}"
-cp -rpH lightcrafts/products/LightZone-forkd "%{buildroot}/%{instdir}"
-cp -rpH linux/products/*.so "%{buildroot}/%{instdir}"
-cp -rpH linux/products/*.jar "%{buildroot}/%{instdir}"
-cp -rpH linux/products/lightzone "%{buildroot}/%{instdir}"
-cp -rpH linux/icons "%buildroot/%{_datadir}/"
+install -dm 0755 "%buildroot/%{_libexecdir}/%{name}"
+cp -pH lightcrafts/products/dcraw_lz "%buildroot/%{_libexecdir}/%{name}"
+cp -pH lightcrafts/products/LightZone-forkd "%buildroot/%{_libexecdir}/%{name}"
+cp -pH linux/products/*.so "%buildroot/%{_libexecdir}/%{name}"
+
+install -dm 0755 "%buildroot/%{_javadir}/%{name}"
+cp -pH linux/products/*.jar "%buildroot/%{_javadir}/%{name}"
 
 # create icons and shortcuts
-%define icondir %{_datadir}/icons/hicolor
-install -dm 0755 "%{buildroot}/%{_datadir}/applications"
-install -dm 0755 "%{buildroot}/%{icondir}/256x256/apps"
-install -dm 0755 "%{buildroot}/%{icondir}/128x128/apps"
-install -dm 0755 "%{buildroot}/%{icondir}/64x64/apps"
-install -dm 0755 "%{buildroot}/%{icondir}/48x48/apps"
-install -dm 0755 "%{buildroot}/%{icondir}/32x32/apps"
-install -dm 0755 "%{buildroot}/%{icondir}/16x16/apps"
+install -dm 0755 "%buildroot/%{_datadir}/applications"
+install -m 644 linux/products/lightzone.desktop "%buildroot/%{_datadir}/applications/"
+cp -pHR linux/icons "%buildroot/%{_datadir}/"
 
-cp -rpH linux/products/lightzone.desktop "%{buildroot}/%{_datadir}/applications/"
-
-
-install -d -m 755 %{buildroot}/%{_bindir}
+install -dm 755 %{buildroot}/%{_bindir}
 install -m 755 linux/products/%{name} %{buildroot}/%{_bindir}
+
 
 %files
 %doc COPYING README.md linux/BUILD-Linux.md
