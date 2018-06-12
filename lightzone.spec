@@ -57,6 +57,7 @@ cp -rpH lightcrafts/products/LightZone-forkd "%{buildroot}/%{instdir}"
 cp -rpH linux/products/*.so "%{buildroot}/%{instdir}"
 cp -rpH linux/products/*.jar "%{buildroot}/%{instdir}"
 cp -rpH linux/products/lightzone "%{buildroot}/%{instdir}"
+cp -rpH linux/icons "%buildroot/%{_datadir}/"
 
 # create icons and shortcuts
 %define icondir %{_datadir}/icons/hicolor
@@ -69,12 +70,7 @@ install -dm 0755 "%{buildroot}/%{icondir}/32x32/apps"
 install -dm 0755 "%{buildroot}/%{icondir}/16x16/apps"
 
 cp -rpH linux/products/lightzone.desktop "%{buildroot}/%{_datadir}/applications/"
-cp -rpH linux/icons/LightZone_256x256.png "%{buildroot}/%{icondir}/256x256/apps/LightZone.png"
-cp -rpH linux/icons/LightZone_128x128.png "%{buildroot}/%{icondir}/128x128/apps/LightZone.png"
-cp -rpH linux/icons/LightZone_64x64.png "%{buildroot}/%{icondir}/64x64/apps/LightZone.png"
-cp -rpH linux/icons/LightZone_48x48.png "%{buildroot}/%{icondir}/48x48/apps/LightZone.png"
-cp -rpH linux/icons/LightZone_32x32.png "%{buildroot}/%{icondir}/32x32/apps/LightZone.png"
-cp -rpH linux/icons/LightZone_16x16.png "%{buildroot}/%{icondir}/16x16/apps/LightZone.png"
+
 
 install -d -m 755 %{buildroot}/%{_bindir}
 install -m 755 linux/products/%{name} %{buildroot}/%{_bindir}
