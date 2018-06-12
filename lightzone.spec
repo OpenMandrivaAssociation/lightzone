@@ -1,12 +1,14 @@
+%define oname LightZone
+
 Name:		lightzone
-Version:	4.0.0
-Release:	3
+Version:	4.1.8
+Release:	1
 License:	BSD-3-Clause
 Summary:	Open-source professional-level digital darkroom software
 Url:		http://lightzoneproject.org/
 Group:		Graphics
-Source0:	%{name}-%{version}.tar.bz2
-Source100:	%{name}.rpmlintrc
+Source0:	https://github.com/ktgw0316/LightZone/archive/%{version}/%{name}-%{version}.tar.gz
+#Source100:	%{name}.rpmlintrc
 BuildRequires:	ant
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -38,7 +40,7 @@ copied to a batch of photos at one time. LightZone operates in a 16-bit
 linear color space with the wide gamut of ProPhoto RGB.
 
 %prep
-%setup -q
+%setup -qn %{oname}-%{version}
 
 %build
 %ant -f linux/build.xml jar
