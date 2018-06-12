@@ -13,8 +13,8 @@ BuildRequires:	ant
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	nasm
-#BuildRequires:	gcc
-#BuildRequires:	gcc-c++
+BuildRequires:	gcc
+BuildRequires:	gcc-c++
 BuildRequires:  gomp-devel
 BuildRequires:	libtool
 BuildRequires:	make
@@ -27,6 +27,7 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:  pkgconfig(libjpeg)
 BuildRequires:  pkgconfig(lcms2)
+BuildRequires:  pkgconfig(libtiff-4)
 
 Requires:	java >= 1.6.0
 Requires:	%{_lib}lzma5
