@@ -29,7 +29,7 @@ BuildRequires:  pkgconfig(libjpeg)
 BuildRequires:  pkgconfig(lcms2)
 BuildRequires:  pkgconfig(libtiff-4)
 
-Requires:	java >= 1.6.0
+Requires:	java
 Requires:	%{_lib}lzma5
 
 %description
@@ -50,41 +50,32 @@ linear color space with the wide gamut of ProPhoto RGB.
 %ant -f linux/build.xml jar
 
 %install
-%define instdir /opt/%{name}
-install -dm 0755 "%{buildroot}/%{instdir}"
-cp -rpH lightcrafts/products/dcraw_lz "%{buildroot}/%{instdir}"
-cp -rpH lightcrafts/products/LightZone-forkd "%{buildroot}/%{instdir}"
-cp -rpH linux/products/*.so "%{buildroot}/%{instdir}"
-cp -rpH linux/products/*.jar "%{buildroot}/%{instdir}"
-cp -rpH linux/products/lightzone "%{buildroot}/%{instdir}"
+install -dm 0755 "%buildroot/%{_libexecdir}/%{name}"
+cp -pH lightcrafts/products/dcraw_lz "%buildroot/%{_libexecdir}/%{name}"
+cp -pH lightcrafts/products/LightZone-forkd "%buildroot/%{_libexecdir}/%{name}"
+cp -pH linux/products/*.so "%buildroot/%{_libexecdir}/%{name}"
+
+install -dm 0755 "%buildroot/%{_javadir}/%{name}"
+cp -pH linux/products/*.jar "%buildroot/%{_javadir}/%{name}"
 
 # create icons and shortcuts
-%define icondir %{_datadir}/icons/hicolor
-install -dm 0755 "%{buildroot}/%{_datadir}/applications"
-install -dm 0755 "%{buildroot}/%{icondir}/256x256/apps"
-install -dm 0755 "%{buildroot}/%{icondir}/128x128/apps"
-install -dm 0755 "%{buildroot}/%{icondir}/64x64/apps"
-install -dm 0755 "%{buildroot}/%{icondir}/48x48/apps"
-install -dm 0755 "%{buildroot}/%{icondir}/32x32/apps"
-install -dm 0755 "%{buildroot}/%{icondir}/16x16/apps"
+install -dm 0755 "%buildroot/%{_datadir}/applications"
+install -m 644 linux/products/lightzone.desktop "%buildroot/%{_datadir}/applications/"
+cp -pHR linux/icons "%buildroot/%{_datadir}/"
 
-cp -rpH linux/products/lightzone.desktop "%{buildroot}/%{_datadir}/applications/"
-cp -rpH linux/icons/LightZone_256x256.png "%{buildroot}/%{icondir}/256x256/apps/LightZone.png"
-cp -rpH linux/icons/LightZone_128x128.png "%{buildroot}/%{icondir}/128x128/apps/LightZone.png"
-cp -rpH linux/icons/LightZone_64x64.png "%{buildroot}/%{icondir}/64x64/apps/LightZone.png"
-cp -rpH linux/icons/LightZone_48x48.png "%{buildroot}/%{icondir}/48x48/apps/LightZone.png"
-cp -rpH linux/icons/LightZone_32x32.png "%{buildroot}/%{icondir}/32x32/apps/LightZone.png"
-cp -rpH linux/icons/LightZone_16x16.png "%{buildroot}/%{icondir}/16x16/apps/LightZone.png"
-
-install -d -m 755 %{buildroot}/%{_bindir}
+install -dm 755 %{buildroot}/%{_bindir}
 install -m 755 linux/products/%{name} %{buildroot}/%{_bindir}
+
 
 %files
 %doc COPYING README.md linux/BUILD-Linux.md
-%dir %{instdir}
-%{instdir}/*
+%dir %{_libexecdir}/%{name}
+%{_libexecdir}/%{name}/*
+%dir %{_javadir}/%{name}
+%{_javadir}/%{name}/*
 %{_bindir}/%{name}
-%{_datadir}/applications/lightzone.desktop
+%{_datadir}/applications/%{name}.desktop
+%define icondir %{_datadir}/icons/hicolor
 %dir %{icondir}
 %dir %{icondir}/256x256
 %dir %{icondir}/256x256/apps
@@ -98,10 +89,10 @@ install -m 755 linux/products/%{name} %{buildroot}/%{_bindir}
 %dir %{icondir}/32x32/apps
 %dir %{icondir}/16x16
 %dir %{icondir}/16x16/apps
-%{icondir}/256x256/apps/LightZone.png
-%{icondir}/128x128/apps/LightZone.png
-%{icondir}/64x64/apps/LightZone.png
-%{icondir}/48x48/apps/LightZone.png
-%{icondir}/32x32/apps/LightZone.png
-%{icondir}/16x16/apps/LightZone.png
+%{icondir}/256x256/apps/%{name}.png
+%{icondir}/128x128/apps/%{name}.png
+%{icondir}/64x64/apps/%{name}.png
+%{icondir}/48x48/apps/%{name}.png
+%{icondir}/32x32/apps/%{name}.png
+%{icondir}/16x16/apps/%{name}.png
 
