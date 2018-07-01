@@ -29,7 +29,7 @@ BuildRequires:  pkgconfig(libjpeg)
 BuildRequires:  pkgconfig(lcms2)
 BuildRequires:  pkgconfig(libtiff-4)
 
-Requires:	java >= 1.8.0
+Requires:	java
 Requires:	%{_lib}lzma5
 
 %description
