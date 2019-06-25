@@ -1,7 +1,7 @@
 %define oname LightZone
 
 Name:		lightzone
-Version:	4.1.8
+Version:	4.1.9
 Release:	2
 License:	BSD-3-Clause
 Summary:	Open-source professional-level digital darkroom software
