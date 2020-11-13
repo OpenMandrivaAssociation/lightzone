@@ -1,8 +1,8 @@
 %define oname LightZone
 
 Name:		lightzone
-Version:	4.1.9
-Release:	2
+Version:	4.2.1
+Release:	1
 License:	BSD-3-Clause
 Summary:	Open-source professional-level digital darkroom software
 Url:		http://lightzoneproject.org/
@@ -10,18 +10,12 @@ Group:		Graphics
 Source0:	https://github.com/ktgw0316/LightZone/archive/%{version}/%{oname}-%{version}.tar.gz
 #Source100:	%{name}.rpmlintrc
 BuildRequires:	ant
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	nasm
-BuildRequires:	gcc
-BuildRequires:	gcc-c++
 BuildRequires:  gomp-devel
-BuildRequires:	libtool
-BuildRequires:	make
 BuildRequires:	tidy
 BuildRequires:	git
 BuildRequires:	javahelp2
-BuildRequires:	java-1.8.0-openjdk-devel
+BuildRequires:	java-openjdk-devel
 BuildRequires:	java-rpmbuild
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(liblzma)
@@ -66,7 +60,6 @@ cp -pHR linux/icons "%buildroot/%{_datadir}/"
 install -dm 755 %{buildroot}/%{_bindir}
 install -m 755 linux/products/%{name} %{buildroot}/%{_bindir}
 
-
 %files
 %doc COPYING README.md linux/BUILD-Linux.md
 %dir %{_libexecdir}/%{name}
@@ -75,24 +68,5 @@ install -m 755 linux/products/%{name} %{buildroot}/%{_bindir}
 %{_javadir}/%{name}/*
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%define icondir %{_datadir}/icons/hicolor
-%dir %{icondir}
-%dir %{icondir}/256x256
-%dir %{icondir}/256x256/apps
-%dir %{icondir}/128x128
-%dir %{icondir}/128x128/apps
-%dir %{icondir}/64x64
-%dir %{icondir}/64x64/apps
-%dir %{icondir}/48x48
-%dir %{icondir}/48x48/apps
-%dir %{icondir}/32x32
-%dir %{icondir}/32x32/apps
-%dir %{icondir}/16x16
-%dir %{icondir}/16x16/apps
-%{icondir}/256x256/apps/%{name}.png
-%{icondir}/128x128/apps/%{name}.png
-%{icondir}/64x64/apps/%{name}.png
-%{icondir}/48x48/apps/%{name}.png
-%{icondir}/32x32/apps/%{name}.png
-%{icondir}/16x16/apps/%{name}.png
+%{_iconsdir}/hicolor/*/apps/%{name}.png
 
