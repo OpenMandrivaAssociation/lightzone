@@ -15,7 +15,8 @@ BuildRequires:  gomp-devel
 BuildRequires:	tidy
 BuildRequires:	git
 BuildRequires:	javahelp2
-BuildRequires:	java-openjdk-devel
+#BuildRequires:	java-openjdk-devel
+BuildRequires:  java-current-devel
 BuildRequires:	java-rpmbuild
 BuildRequires:	pkgconfig(x11)
 BuildRequires:  pkgconfig(lensfun)
