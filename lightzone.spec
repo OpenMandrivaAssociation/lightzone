@@ -18,6 +18,7 @@ BuildRequires:	javahelp2
 BuildRequires:	java-openjdk-devel
 BuildRequires:	java-rpmbuild
 BuildRequires:	pkgconfig(x11)
+BuildRequires:  pkgconfig(lensfun)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:  pkgconfig(libjpeg)
 BuildRequires:  pkgconfig(lcms2)
