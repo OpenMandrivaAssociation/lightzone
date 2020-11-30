@@ -1,7 +1,7 @@
 %define oname LightZone
 
 Name:		lightzone
-Version:	4.2.1
+Version:	4.2.2
 Release:	1
 License:	BSD-3-Clause
 Summary:	Open-source professional-level digital darkroom software
@@ -24,7 +24,7 @@ BuildRequires:  pkgconfig(libjpeg)
 BuildRequires:  pkgconfig(lcms2)
 BuildRequires:  pkgconfig(libtiff-4)
 
-Requires:	java
+Requires:	java-current
 Requires:	%{_lib}lzma5
 
 %description
