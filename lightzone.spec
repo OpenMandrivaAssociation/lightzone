@@ -2,7 +2,7 @@
 
 Name:		lightzone
 Version:	4.2.3
-Release:	2
+Release:	3
 License:	BSD-3-Clause
 Summary:	Open-source professional-level digital darkroom software
 Url:		http://lightzoneproject.org/
