@@ -22,6 +22,7 @@ BuildRequires:	tidy
 BuildRequires:	git
 BuildRequires:	javahelp2
 BuildRequires:  jdk-current
+BuildRequires:  java-gui-current
 BuildRequires:	java-rpmbuild
 BuildRequires:	pkgconfig(x11)
 BuildRequires:  pkgconfig(lensfun)
@@ -58,8 +59,7 @@ else
 fi
 
 %build
-export JAVA_HOME=%{_prefix}/lib/jvm/java-19-openjdk
-export PATH=$JAVA_HOME/bin:$PATH
+. %{_sysconfdir}/profile.d/90java.sh
 
 ant -f linux/build.xml jar -Dno-ivy=true -Dno-submodule=true
 
