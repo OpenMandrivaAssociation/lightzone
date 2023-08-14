@@ -1,0 +1,93 @@
+diff -up LightZone-4.2.5/lightcrafts/jnisrc/EDISON/segm/ms.cpp.omv~ LightZone-4.2.5/lightcrafts/jnisrc/EDISON/segm/ms.cpp
+--- LightZone-4.2.5/lightcrafts/jnisrc/EDISON/segm/ms.cpp.omv~	2023-08-14 16:44:47.433225667 +0200
++++ LightZone-4.2.5/lightcrafts/jnisrc/EDISON/segm/ms.cpp	2023-08-14 16:44:56.524303814 +0200
+@@ -955,7 +955,7 @@ void MeanShift::LatticeMSVector(double *
+ {
+ 	
+ 	// Initialize mean shift vector
+-	register int i;
++	int i;
+ 	for(i = 0; i < N+2; i++)
+ 		Mh_ptr[i] = 0;
+ 	
+@@ -1019,7 +1019,7 @@ void MeanShift::OptLatticeMSVector(doubl
+ {
+ 	
+ 	// Initialize mean shift vector
+-	register int i;
++	int i;
+ 	for(i = 0; i < N+2; i++)
+ 		Mh_ptr[i] = 0;
+ 	
+@@ -1927,7 +1927,7 @@ void MeanShift::uniformLSearch(double *M
+ {
+ 	
+ 	//Declare variables
+-	register int	i, j, k;
++	int	i, j, k;
+ 	int				s, p, dataPoint, lN;
+ 	double			diff, el, dx, dy, tx, weight;
+ 	
+@@ -2044,7 +2044,7 @@ void MeanShift::optUniformLSearch(double
+ {
+ 	
+ 	//Declare variables
+-	register int	i, j, k;
++	int	i, j, k;
+ 	int				s, p, dataPoint, pointIndx, lN;
+ 	double			diff, el, dx, dy, tx, weight;
+ 	
+@@ -2167,7 +2167,7 @@ void MeanShift::generalLSearch(double *M
+ {
+ 	
+ 	//Declare variables
+-	register int i, j, k;
++	int i, j, k;
+ 	int			 s, p, dataPoint, lN, x0, x1;
+ 	double		 diff, el, dx, dy, tw, u, y0, y1, tx;
+ 	
+@@ -2323,7 +2323,7 @@ void MeanShift::optGeneralLSearch(double
+ {
+ 	
+ 	//Declare variables
+-	register int	i, j, k;
++	int	i, j, k;
+ 	int				s, p, dataPoint, pointIndx, lN, x0, x1;
+ 	double			diff, el, dx, dy, tw, u, y0, y1, tx;
+ 	
+diff -up LightZone-4.2.5/lightcrafts/jnisrc/EDISON/segm/msImageProcessor.cpp.omv~ LightZone-4.2.5/lightcrafts/jnisrc/EDISON/segm/msImageProcessor.cpp
+--- LightZone-4.2.5/lightcrafts/jnisrc/EDISON/segm/msImageProcessor.cpp.omv~	2023-08-14 16:45:04.865375614 +0200
++++ LightZone-4.2.5/lightcrafts/jnisrc/EDISON/segm/msImageProcessor.cpp	2023-08-14 16:45:07.974402400 +0200
+@@ -3066,7 +3066,7 @@ void msImageProcessor::DefineBoundaries(
+ 	}
+ 
+ 	//last row (every pixel is a boundary pixel) (i = height-1)
+-	register int	start	= (height-1)*width, stop = height*width;
++	int	start	= (height-1)*width, stop = height*width;
+ 	for(i = start; i < stop; i++)
+ 	{
+ 		boundaryMap[i]		= label	= labels[i];
+diff -up LightZone-4.2.5/lightcrafts/jnisrc/jniutils/LC_itoa.cpp.omv~ LightZone-4.2.5/lightcrafts/jnisrc/jniutils/LC_itoa.cpp
+--- LightZone-4.2.5/lightcrafts/jnisrc/jniutils/LC_itoa.cpp.omv~	2023-08-14 16:43:47.549713891 +0200
++++ LightZone-4.2.5/lightcrafts/jnisrc/jniutils/LC_itoa.cpp	2023-08-14 16:44:22.169009111 +0200
+@@ -9,9 +9,9 @@
+  * See also: Brian W. Kernighan, Dennis M. Ritchie.  "The C Programming
+  * Language, 2nd ed."  Addison-Wesley, Reading, MA, 1988.  pp. 63-64.
+  */
+-char const* LC_ltoa( register long n ) {
++char const* LC_ltoa( long n ) {
+     static char buf[ 20 ];
+-    register char *s = buf;
++    char *s = buf;
+     bool const is_neg = n < 0;
+ 
+     if ( is_neg ) n = -n;
+@@ -22,7 +22,7 @@ char const* LC_ltoa( register long n ) {
+     *s = '\0';
+ 
+     // now reverse the string
+-    for ( register char *t = buf; t < s; ++t ) {
++    for ( char *t = buf; t < s; ++t ) {
+         char const tmp = *--s;
+         *s = *t;
+         *t = tmp;
